@@ -8,13 +8,13 @@ const resolvers = {
             return await Listing.find({})
         },
         getListingsByName: async (parents, args) => {
-            return await Listing.find({ listing_title: { $regex: args.name.tolowerCase(), $options: 'i' } })
+            return await Listing.find({ listing_title: { $regex: args.name, $options: 'i' } })
         },
         getListingsByCity: async (parents, args) => {
-            return await Listing.find({ city: args.city.tolowerCase() })
+            return await Listing.find({ city: args.city })
         },
         getListingsByPosCode: async (parents, args) => {
-            return await Listing.find({ postal_code: args.postal_code.tolowerCase() })
+            return await Listing.find({ postal_code: { $regex: args.postal_code, $options: 'i' } })
         },
         getBookingsByUser: async (parents, args) => {
             
@@ -48,7 +48,7 @@ const resolvers = {
             }
 
             // Check if user is admin
-            if (userFind.status != 'admin') {
+            if (userFind.type != 'admin') {
                 return
             }
 
@@ -75,6 +75,10 @@ const resolvers = {
 
         login: async (parent, args) => {
             const userFind = await User.findOne({username: args.username})
+
+            if (!userFind) {
+                return
+            }
 
             if (userFind.password != args.password) {
                 return
@@ -137,9 +141,9 @@ const resolvers = {
             let tempBooking = new Booking({
                 listing_id: args.listing_id,
                 booking_id: args.booking_id,
-                booking_date: Date.now(),
-                booking_start: new Date(args.booking_start),
-                booking_end: new Date(args.booking_end),
+                booking_date: new Date().toString(),
+                booking_start: new Date(args.booking_start).toString(),
+                booking_end: new Date(args.booking_end).toString(),
                 username: userFind.username
             })
 

@@ -66,6 +66,7 @@ const typeDefs = gql `
         addBooking(userId: String!
             listing_id: String!
             booking_id: String!
+            booking_date: String!
             booking_start: String!
             booking_end: String!): Booking
     }

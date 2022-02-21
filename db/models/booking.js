@@ -11,15 +11,15 @@ let BookingSchema = new mongoose.Schema({
         required: true
     },
     booking_date: {
-        type: Date,
+        type: String,
         required: true
     },
     booking_start: {
-        type: Date,
+        type: String,
         required: true
     },
     booking_end: {
-        type: Date,
+        type: String,
         required: true
     },
     username: {

@@ -7,7 +7,7 @@ let UserSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
-        unique: true
+        unique: [true, 'username must be unique']
     },
     firstname: {
         type: String,

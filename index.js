@@ -6,7 +6,7 @@ const { ApolloServer } = require('apollo-server-express')
 const TypeDefs = require('./gql/schema.js')
 const Resolvers = require('./gql/resolvers.js')
 
-const db = 'mongodb+srv://capstone_users:comp3078_access@comp3123.bxzhg.mongodb.net/comp3133?retryWrites=true&w=majority'
+const db = 'mongodb+srv://capstone_users:comp3078_access@comp3123.bxzhg.mongodb.net/101203877_comp3133_assig1?retryWrites=true&w=majority'
 const port = process.env.PORT || 8000
 
 // MongoDB Connection
