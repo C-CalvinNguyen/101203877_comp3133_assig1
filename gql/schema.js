@@ -52,7 +52,7 @@ const typeDefs = gql `
             type: String!): User
 
         login(username: String!
-            password: String!): ID
+            password: String!): [String]
 
         addListing(userId: String!
             listing_id: String!

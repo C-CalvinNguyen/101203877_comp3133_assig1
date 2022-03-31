@@ -83,7 +83,15 @@ const resolvers = {
             if (userFind.password != args.password) {
                 return
             }
-            return userFind._id
+
+            return [
+                userFind._id, 
+                userFind.username, 
+                userFind.firstname,
+                userFind.lastname,
+                userFind.email,
+                userFind.type
+            ]
         },
 
         addListing: async (parent, args) => {

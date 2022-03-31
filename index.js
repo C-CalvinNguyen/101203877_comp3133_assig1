@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const { ApolloServer } = require('apollo-server-express')
+const cors = require('cors')
 
 const TypeDefs = require('./gql/schema.js')
 const Resolvers = require('./gql/resolvers.js')
